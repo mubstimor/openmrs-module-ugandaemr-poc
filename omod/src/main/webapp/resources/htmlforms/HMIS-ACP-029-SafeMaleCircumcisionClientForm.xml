@@ -1,0 +1,78 @@
+<htmlform formName="HMIS ACP 029: Safe Male Circumcision Client Form"
+          formDescription="Safe Male Circumcision Client Form"
+          formEncounterType="264daIZd-f80e-48fe-nba9-P37f2W1905Pv"
+          formUuid="b5c62a98-84d3-43e8-a9be-972185070dd4"
+          formVersion="1.2"
+          formAddMetadata="yes"
+          formUILocation="patientDashboard.visitActions"
+          formOrder="6"
+          formIcon="icon-medkit"
+          formShowIf="(visit.active || !visit.active) &amp;&amp; patient.person.gender=='M' &amp;&amp; patient.person.dead==false"
+          formDisplayStyle="Standard"
+          formLabel="HMIS ACP 029: Safe Male Circumcision Client Form">
+
+    <!-- Beginning of HTML Form -->
+    <div class="poc-page-frame">
+        <div class="row">
+            <div class="col-md-6">
+                <h3>HMIS ACP 029: Safe Male Circumcision Client Form</h3>
+            </div>
+            <div class="col-md-4"></div>
+            <div class="col-md-2"><submit/></div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div>
+                    <div>
+                        <nav>
+                            <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                                <a class="nav-item nav-link active" id="care-entry-section-tab" data-toggle="tab" href="#client-info-section" role="tab" aria-controls="nav-home" aria-selected="true">Client Information</a>
+                                <a class="nav-item nav-link" id="art-care-cohort-tab" data-toggle="tab" href="#procedure-section" role="tab" aria-controls="nav-profile" aria-selected="false">Procedure</a>
+                                <a class="nav-item nav-link" id="prior-art-tab" data-toggle="tab" href="#followup-section" role="tab" aria-controls="nav-contact" aria-selected="false">Follow Up</a>
+                            </div>
+                        </nav>
+                    </div>
+                    <div>
+                        <div class="tab-content art-care-card" id="nav-tabContent">
+
+                            <!-- client information tab-->
+                            <div class="tab-pane fade show active" role="tabpanel" aria-labelledby="nav-profile-tab" id="client-info-section">
+                                <div class="card">
+                                    <div class="card-header">CLIENT INFORMATION</div>
+                                    <div class="card-body">
+                                        <div class="row">
+                                            <div class="col-md-12 ">
+                                                <b>Next Of Kin</b>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <span class="required">*</span>
+                                                <obs conceptId="99142" required="false" labelText="Name" />
+                                            </div>
+                                            <div class="col-md-6">
+                                                <span class="required">*</span>
+                                                <obs conceptId="90278"  class="ugphone" id="90278" labelText="Telephone" required="false" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <!-- Procedure tab-->
+                            <div class="tab-pane" role="tabpanel" aria-labelledby="nav-profile-tab" id="procedure-section">
+                                b
+                            </div>
+
+                            <!-- follow up tab-->
+                            <div class="tab-pane" role="tabpanel" aria-labelledby="nav-profile-tab" id="followup-section">
+                                c
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</htmlform>
