@@ -10,6 +10,34 @@
           formShowIf="(visit.active || !visit.active) &amp;&amp; patient.person.gender=='M' &amp;&amp; patient.person.dead==false &amp;&amp; sessionLocation.uuid=='8f96e239-8586-4ec6-9375-04c6e19628ae'"
           formDisplayStyle="Standard"
           formLabel="HMIS ACP 029: Safe Male Circumcision Client Form">
+          <script type="text/javascript">
+             if (jQuery) {
+            jq(document).ready(function () {
+             
+             <!-- tab activation on consent -->
+             var consentValues = {};
+             jq('.consent').find("input[type$='radio']").change(function (event) {
+                consentValues[event.target.name] = event.target.value;
+                var consentList =  Object.keys(consentValues).filter(function(data){
+                    <!-- add to consent list if yes -->
+                      if(consentValues[data] === '90003'){
+                          return true;
+                      }
+                     return false;
+                 });
+                 if(consentList.length === 3){
+                     jq('.nav-tabs').find('a:nth-child(2)').removeClass('disabled');
+                 }else{
+                     jq('.nav-tabs').find('a:not(:first-child)').addClass('disabled');
+                 }
+                });
+
+
+            });
+
+
+             }
+        </script>
 
     <!-- Beginning of HTML Form -->
     <div>
@@ -25,8 +53,8 @@
                 <nav>
                     <div class="nav nav-tabs" id="nav-tab" role="tablist">
                         <a class="nav-item nav-link active" id="care-entry-section-tab" data-toggle="tab" href="#client-info-section" role="tab" aria-controls="nav-home" aria-selected="true">Client Information</a>
-                        <a class="nav-item nav-link" id="art-care-cohort-tab" data-toggle="tab" href="#procedure-section" role="tab" aria-controls="nav-profile" aria-selected="false">Procedure</a>
-                        <a class="nav-item nav-link" id="prior-art-tab" data-toggle="tab" href="#followup-section" role="tab" aria-controls="nav-contact" aria-selected="false">Follow Up</a>
+                        <a class="nav-item nav-link disabled" id="art-care-cohort-tab" data-toggle="tab" href="#procedure-section" role="tab" aria-controls="nav-profile" aria-selected="false">Procedure</a>
+                        <a class="nav-item nav-link disabled" id="prior-art-tab" data-toggle="tab" href="#followup-section" role="tab" aria-controls="nav-contact" aria-selected="false">Follow Up</a>
                     </div>
                 </nav>
             </div>
@@ -485,7 +513,7 @@
                                         <div class="card-header">D: Eligibility For Circumcision</div>
 
                                         <div class="card-body">
-                                            <div class="row ">
+                                            <div class="row consent">
                                                 <div class="col-md-3">
                                                     <label>Client counseled about SMC?</label>
                                                 </div>
