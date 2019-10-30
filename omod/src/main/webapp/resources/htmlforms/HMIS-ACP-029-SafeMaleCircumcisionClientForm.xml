@@ -10,32 +10,79 @@
           formShowIf="(visit.active || !visit.active) &amp;&amp; patient.person.gender=='M' &amp;&amp; patient.person.dead==false &amp;&amp; sessionLocation.uuid=='8f96e239-8586-4ec6-9375-04c6e19628ae'"
           formDisplayStyle="Standard"
           formLabel="HMIS ACP 029: Safe Male Circumcision Client Form">
+
           <script type="text/javascript">
              if (jQuery) {
-            jq(document).ready(function () {
-             
-             <!-- tab activation on consent -->
-             var consentValues = {};
-             jq('.consent').find("input[type$='radio']").change(function (event) {
-                consentValues[event.target.name] = event.target.value;
-                var consentList =  Object.keys(consentValues).filter(function(data){
-                    <!-- add to consent list if yes -->
-                      if(consentValues[data] === '90003'){
-                          return true;
-                      }
-                     return false;
-                 });
-                 if(consentList.length === 3){
-                     jq('.nav-tabs').find('a:nth-child(2)').removeClass('disabled');
-                 }else{
-                     jq('.nav-tabs').find('a:not(:first-child)').addClass('disabled');
-                 }
+                jq(document).ready(function () {
+
+                     <!-- tab activation on consent -->
+                     var consentValues = {};
+                     jq('.consent').find("input[type$='radio']").change(function (event) {
+                        consentValues[event.target.name] = event.target.value;
+                        var consentList =  Object.keys(consentValues).filter(function(data){
+                            <!-- add to consent list if yes -->
+                              if(consentValues[data] === '90003'){
+                                  return true;
+                              }
+                             return false;
+                         });
+                         if(consentList.length === 3){
+                             jq('.nav-tabs').find('a:nth-child(2)').removeClass('disabled');
+                         }else{
+                             jq('.nav-tabs').find('a:not(:first-child)').addClass('disabled');
+                         }
+                        });
+
+                      //Block Multiple encounter entry on same date
+                      blockEncounterOnSameDateEncounter(jq("#encounterDate").find("input[type=hidden]"),"block");
+
+                      <!-- disable other field on source of info -->
+                      jq('#99612').click(function () {
+                          if (getValue('99612.value') == 90002) {
+                            enableContainer('#99613');
+                          } else {
+                            disableContainer('#99613');
+                          }
+                      });
+
+                      jq('#99612').trigger('click');
+
+                      <!-- disable other field on care entry point -->
+                      jq('#99619').click(function () {
+                          if (getValue('99619.value') == 90002) {
+                            enableContainer('#99622');
+                          } else {
+                            disableContainer('#99622');
+                          }
+                      });
+
+                      jq('#99619').trigger('click');
+
+                      <!-- disable hiv care or referred field if not HIV positive    -->
+                      disableContainer('#162900');
+                      jq('#99628').change(function () {
+                          if (getValue('99628.value') == 703) {
+                            enableContainer('#162900');
+                          } else {
+                            disableContainer('#162900');
+                          }
+                      });
+
+                      jq('#99628').trigger('click');
+
+
+                      <!-- disable other on presence of AE    -->
+                      jq('#smc_presence_of_ae').click(function () {
+                          if (getValue('smc_presence_of_ae.value') == 90002) {
+                            enableContainer('#smc_presence_of_ae_other');
+                          } else {
+                            disableContainer('#smc_presence_of_ae_other');
+                          }
+                      });
+
+                      jq('#smc_presence_of_ae').trigger('click');
+
                 });
-
-
-            });
-
-
              }
         </script>
 
@@ -79,60 +126,64 @@
                                                 <encounterDate default="today" disallowMultipleEncountersOnDate="block"/>
                                             </div>
                                             <div class="col-md-6">
-                                                <obs conceptId="99142" required="false" labelText="Next Of Kin Name" />
+                                                <obs conceptId="99142" required="true" labelText="Next Of Kin Name" />
                                             </div>
                                             <div class="col-md-4">
-                                                <obs conceptId="90278"  class="ugphone" id="90278" labelText="Next Of Kin Telephone Number:" required="false" />
+                                                <obs conceptId="90278"  class="ugphone" id="90278" labelText="Next Of Kin Telephone Number:" required="true" />
                                             </div>
                                         </div>
 
                                         <!-- source of information    -->
                                         <div class="row">
-                                            <div class="col-md-12">
-                                                <h5>How did you hear about SMC?</h5>
-                                            </div>
-                                            <div class="col-md-2">
-                                                <obs conceptId="99612" answerConceptId="99614" answerLabel="Friend/Family" style="checkbox"/>
-                                            </div>
-                                            <div class="col-md-2">
-                                                <obs conceptId="99612" answerConceptId="99615" answerLabel="Radio" style="checkbox"/>
-                                            </div>
-                                            <div class="col-md-2">
-                                                <obs conceptId="99612" answerConceptId="99616" answerLabel="TV" style="checkbox"/>
-                                            </div>
-                                            <div class="col-md-2">
-                                                <obs conceptId="99612" answerConceptId="99617" answerLabel="HCW Referral" style="checkbox"/>
-                                            </div>
-                                            <div class="col-md-2">
-                                                <obs conceptId="99612" answerConceptId="162897" answerLabel="VHT" style="checkbox"/>
-                                            </div>
-                                            <div class="col-md-2">
-                                                <obs conceptId="99612" answerConceptId="165349" answerLabel="Print Media" style="checkbox"/>
-                                            </div>
-                                            <div class="col-md-4">
-                                                <obs conceptId="99612" answerConceptId="162898" answerLabel="Megaphones /Community Radio" style="checkbox"/>
-                                            </div>
-                                            <div class="col-md-6 row">
-                                                <!-- TODO: Comment field should go on the same line as other checkbox -->
-                                                <obs class="col-md-4" conceptId="99612" answerConceptId="90002" answerLabel="Other(Specify)" commentFieldLabel=""  style="checkbox"/>
-                                            </div>
+                                            <obsgroup groupingConceptId="99611">
+                                                <div class="col-md-12">
+                                                    <h5>How did you hear about SMC?</h5>
+                                                </div>
+                                                <div class="col-md-2">
+                                                    <obs conceptId="99612" answerConceptId="99614" answerLabel="Friend/Family" style="checkbox"/>
+                                                </div>
+                                                <div class="col-md-2">
+                                                    <obs conceptId="99612" answerConceptId="99615" answerLabel="Radio" style="checkbox"/>
+                                                </div>
+                                                <div class="col-md-2">
+                                                    <obs conceptId="99612" answerConceptId="99616" answerLabel="TV" style="checkbox"/>
+                                                </div>
+                                                <div class="col-md-2">
+                                                    <obs conceptId="99612" answerConceptId="99617" answerLabel="HCW Referral" style="checkbox"/>
+                                                </div>
+                                                <div class="col-md-2">
+                                                    <obs conceptId="99612" answerConceptId="162897" answerLabel="VHT" style="checkbox"/>
+                                                </div>
+                                                <div class="col-md-2">
+                                                    <obs conceptId="99612" answerConceptId="165349" answerLabel="Print Media" style="checkbox"/>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <obs conceptId="99612" answerConceptId="162898" answerLabel="Megaphones /Community Radio" style="checkbox"/>
+                                                </div>
+                                                <div class="col-md-6 row">
+                                                    <obs class="col-md-3" conceptId="99612" answerConceptId="90002" id="99612" answerLabel="Other" style="checkbox"/>
+                                                    <obs id="99613" conceptId="99613" labelText=""/>
+                                                </div>
+                                            </obsgroup>
                                         </div>
 
                                         <!-- care entry point -->
                                         <div class="row">
-                                            <div class="col-md-12 ">
-                                                <h5>Care Entry Point</h5>
-                                            </div>
-                                            <div class="col-md-2">
-                                                <obs conceptId="99619" answerConceptId="162899" answerLabel="SMC" style="checkbox"/>
-                                            </div>
-                                            <div class="col-md-2">
-                                                <obs conceptId="99619" answerConceptId="99620" answerLabel="HTS" style="checkbox"/>
-                                            </div>
-                                            <div class="col-md-3 row">
-                                                <!-- TODO: Comment field should go on the same line as other checkbox -->
-                                                <obs conceptId="99619" answerConceptId="99115" answerLabel="Other(Specify)"  commentFieldLabel="" style="checkbox"/>
-                                            </div>
+                                            <obsgroup groupingConceptId="99618">
+                                                <div class="col-md-12 ">
+                                                    <h5>Care Entry Point</h5>
+                                                </div>
+                                                <div class="col-md-2">
+                                                    <obs conceptId="99619" answerConceptId="162899" answerLabel="SMC" style="checkbox"/>
+                                                </div>
+                                                <div class="col-md-2">
+                                                    <obs conceptId="99619" answerConceptId="99620" answerLabel="HTS" style="checkbox"/>
+                                                </div>
+                                                <div class="col-md-6 row">
+                                                    <obs class="col-md-4" conceptId="99619" id="99619" answerConceptId="90002" answerLabel="Other(Specify)" style="checkbox"/>
+                                                    <obs conceptId="99622" id="99622"/>
+                                                </div>
+                                            </obsgroup>
                                         </div>
 
                                     </div>
@@ -183,14 +234,16 @@
                                                 <div class="col-md-3">
                                                     <label>HIV test results</label>
                                                 </div>
-                                                <div class="col-md-1 ">
+                                                <div class="col-md-2 ">
                                                     <obs conceptId="99628" answerConceptIds="703,664,162926,99736" answerLabels="Positive,Negative, Inconclusive, Known Positive"
                                                          id="99628" style="dropdown" answerSeparator="" />
                                                 </div>
                                                 <div class="col-md-4 offset-1 row">
-                                                    <label>If HIV +</label>
-                                                    <obs conceptId="162900" answerConceptIds="163004,99429" answerLabels="is He in HIV care,Referred" style="radio"
-                                                         id="smc_client_in_care" answerSeparator="" class="horizontal"/>
+                                                    <span id="162900">
+                                                        <label>If HIV +</label>
+                                                        <obs conceptId="162900" answerConceptIds="163004,99429" answerLabels="is He in HIV care,Referred" style="radio"
+                                                             id="smc_client_in_care" answerSeparator="" class="horizontal"/>
+                                                    </span>
                                                 </div>
                                             </div>
                                             <div class="row">
@@ -791,8 +844,9 @@
                                                         <div class="col-md-3">
                                                             <obs conceptId="99706" answerConceptId="162914" answerLabel="9 - Early Ring Removal"/>
                                                         </div>
-                                                        <div class="col-md-5">
-                                                            <obs conceptId="99706" answerConceptId="90002" answerLabel="(Other Specify)" commentFieldLabel="" />
+                                                        <div class="col-md-6 row">
+                                                            <obs class="col-md-4" conceptId="99706" id="smc_presence_of_ae" answerConceptId="90002" answerLabel="(Other Specify)" />
+                                                            <obs conceptId="99710" labelText="" id="smc_presence_of_ae_other"/>
                                                         </div>
                                                     </div>
 
