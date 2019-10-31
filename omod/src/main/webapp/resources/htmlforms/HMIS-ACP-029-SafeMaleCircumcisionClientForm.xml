@@ -82,6 +82,66 @@
 
                       jq('#smc_presence_of_ae').trigger('click');
 
+
+                      <!-- disable ring size field if not shang  -->
+                      disableContainer('#162910'); <!-- shang -->
+                      disableContainer('#99678'); <!-- other procedure -->
+                      jq('#circumcision_procedure').change(function () {
+                          if (getValue('circumcision_procedure.value') == 162911) {
+                            enableContainer('#162910');
+                          } else if (getValue('circumcision_procedure.value') == 90002){
+                            enableContainer('#99678');
+                            disableContainer('#162910');
+                          }
+                          else {
+                            disableContainer('#162910');
+                            disableContainer('#99678');
+                          }
+                      });
+
+                      jq('#circumcision_procedure').trigger('click');
+
+                      <!-- Enable follow up tab if circumcision date and time are provided -->
+                        <!-- enable end time if start time selected      -->
+                          disableContainer('#99543');
+                          jq('#99542').change(function () {
+                          var chgdate = jq(this).find("select").find(":selected").val();
+                          if ( chgdate > 0) {
+                            enableContainer('#99543');
+                          } else {
+                            disableContainer('#99543');
+                          }
+                          });
+
+                        <!-- activate follow up tab if end time selected -->
+                        jq('#99543').change(function () {
+                            var chgdate = jq(this).find("select").find(":selected").val();
+                            if ( chgdate > 0) {
+                                jq('.nav-tabs').find('a:nth-child(3)').removeClass('disabled');
+                            } else {
+                                jq('.nav-tabs').find('a:nth-child(3)').addClass('disabled');
+                            }
+                        });
+
+
+                      <!-- disable adverse event form on presence of AE    -->
+                      jq(".adverse-effect-presence-form").find("input[type$='checkbox']").attr("disabled", true);
+                      jq(".adverse-effect-presence-form").find("input[type$='radio']").attr("disabled", true);
+                      jq(".adverse-effect-presence-form").find("input[type$='text']").attr("disabled", true);
+
+                      jq('#99684').click(function () {
+                          if (getValue('99684.value') == 90003) {
+                              jq(".adverse-effect-presence-form").find("input[type$='checkbox']").attr("disabled", false);
+                              jq(".adverse-effect-presence-form").find("input[type$='radio']").attr("disabled", false);
+                              jq(".adverse-effect-presence-form").find("input[type$='text']").attr("disabled", false);
+                          } else {
+                              jq(".adverse-effect-presence-form").find("input[type$='checkbox']").attr("disabled", true);
+                              jq(".adverse-effect-presence-form").find("input[type$='radio']").attr("disabled", true);
+                              jq(".adverse-effect-presence-form").find("input[type$='text']").attr("disabled", true);
+                          }
+                      });
+
+
                 });
              }
         </script>
@@ -265,7 +325,7 @@
                                                     <label>Date of TD1</label>
                                                     <!-- TODO: fix Calendar icon style -->
                                                     <i class=" icon-calendar small family-date-icon position-absolute" style="right: 25%; top: 50%;"></i>
-                                                    <obs  conceptId="162902" required="false" labelText="" />
+                                                    <obs  conceptId="162902" required="false" labelText="" allowFutureDates="false" />
                                                 </div>
                                                 <div class="col-md-3">
                                                     <label>Date of TD2</label>
@@ -613,19 +673,19 @@
                                                     <div>
                                                         <!-- TODO: fix Calendar icon style -->
                                                         <i class=" icon-calendar small family-date-icon position-absolute" style="right: 25%; top: 50%;" ></i>
-                                                         <obs conceptId="165390" class="hasDatepicker"/>
+                                                         <obs conceptId="165390" class="hasDatepicker" allowFutureDates="false" />
                                                     </div>
                                                 </div>
                                                 <div class="col-md-4">
                                                     <label>Time started:</label>
                                                     <span class="time-box-horizontal">
-                                                        <obs conceptId="99542"/>
+                                                        <obs conceptId="99542" id="99542"/>
                                                     </span>
                                                 </div>
-                                                <div class="col-md-5">
+                                                <div class="col-md-4">
                                                     <label>End Time:</label>
                                                     <span class="time-box-horizontal">
-                                                        <obs conceptId="99543"/>
+                                                        <obs conceptId="99543" id="99543"/>
                                                     </span>
 
                                                 </div>
@@ -651,12 +711,12 @@
                                             <div class="row ">
                                                 <div class="col-md-3">
                                                     <label>Type of Circumcision Procedure </label>
-                                                    <obs conceptId="99628" answerConceptIds="99676,99675,99677,162908, 90002" answerLabels="Dorsal slit,Forceps guided,Sleeve,PrePex, Other Specify"
-                                                         id="99628"
+                                                    <obs conceptId="99628" answerConceptIds="99676,99675,99677,162908,162911,90002" answerLabels="Dorsal slit,Forceps guided,Sleeve,PrePex,Shang Ring,Other Specify"
+                                                         id="circumcision_procedure"
                                                          style="dropdown" answerSeparator=""/>
                                                 </div>
                                                 <div class="col-md-4">
-                                                    <obs conceptId="162909" labelText="Ring Size"/>
+                                                    <obs conceptId="162909" id="162910" labelText="Ring Size"/>
                                                 </div>
                                                 <div class="col-md-4">
                                                     <obs conceptId="99678"  class="horizontal" id="99678" labelText="Other(Specify)"  required="false" />
@@ -675,7 +735,7 @@
                                                 </div>
                                                 <div class="col-md-4">
                                                     <label>Adverse events during procedure?</label>
-                                                    <obs conceptId="99684" answerConceptIds="90003,90004" answerLabels="Yes,No" style="radio"
+                                                    <obs conceptId="99684" id="99684" answerConceptIds="90003,90004" answerLabels="Yes,No" style="radio"
                                                          answerSeparator="" class="horizontal"/>
                                                 </div>
                                             </div>
@@ -684,7 +744,8 @@
                                 </div>
 
                                 <!-- Adverse event form-->
-                                <div class="card">
+<!--                                <span id="ae_presence_form">-->
+                                <div class="card adverse-effect-presence-form">
                                     <div class="card-header">Adverse Event Form</div>
 
                                     <div class="card-body div-stripped">
@@ -717,13 +778,19 @@
                                                 <obs conceptId="99691" answerConceptIds="99562,99561" answerLabels="Moderate, Severe"
                                                      style="radio" answerSeparator="" class="horizontal col-md-6"/>
                                             </div>
-                                            <div class="col-md-2">
+                                        </div>
+
+                                        <!-- Treatment given -->
+                                        <div class="row">
+                                            <div class="col-md-6">
                                                 <label>Treatment given:</label>
                                                 <obs conceptId="99692" size="50" labelText=""/>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
+<!--                                </span>-->
+
 
                                 <!-- Adverse event form-->
                                 <div class="card">
@@ -792,7 +859,7 @@
                                                             <label>Date :</label>
                                                             <!-- TODO: fix Calendar icon style -->
                                                             <i class=" icon-calendar small family-date-icon position-absolute" style="right: 25%; top: 50%;" ></i>
-                                                            <obs conceptId="165390" class="hasDatepicker" />
+                                                            <obs conceptId="165390" class="hasDatepicker" allowFutureDates="false" />
                                                         </div>
                                                         <div class="col-md-4">
                                                             <label>Wound Status:</label>
