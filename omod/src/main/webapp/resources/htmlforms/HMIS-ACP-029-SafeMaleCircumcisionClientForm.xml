@@ -306,7 +306,7 @@
                                                 </div>
                                                 <div class="col-md-6 row">
                                                     <obs class="col-md-3" conceptId="99612" answerConceptId="90002" id="99612" answerLabel="Other" style="checkbox"/>
-                                                    <obs id="99613" conceptId="99613" labelText=""/>
+                                                    <obs id="99613" conceptId="99613"/>
                                                 </div>
                                             </obsgroup>
                                         </div>
@@ -369,7 +369,7 @@
                                                 </div>
                                                 <div class="col-md-3">
                                                     <obs conceptId="99631" answerConceptIds="90003,90004" answerLabels="Yes,No" style="radio"
-                                                         answerSeparator="" class="horizontal"/>
+                                                         class="horizontal"/>
                                                 </div>
                                             </div>
 
@@ -380,13 +380,13 @@
                                                 </div>
                                                 <div class="col-md-2 ">
                                                     <obs conceptId="99628" answerConceptIds="703,664,162926,99736" answerLabels="Positive,Negative, Inconclusive, Known Positive"
-                                                         id="99628" style="dropdown" answerSeparator="" />
+                                                         id="99628" style="dropdown" />
                                                 </div>
                                                 <div class="col-md-4 offset-1 row">
                                                     <span id="162900">
                                                         <label>If HIV +</label>
                                                         <obs conceptId="162900" answerConceptIds="163004,99429" answerLabels="is He in HIV care,Referred" style="radio"
-                                                             id="smc_client_in_care" answerSeparator="" class="horizontal"/>
+                                                             id="smc_client_in_care" class="horizontal"/>
                                                     </span>
                                                 </div>
                                             </div>
@@ -396,7 +396,7 @@
                                                 </div>
                                                 <div class="col-md-2">
                                                     <obs conceptId="99628" answerConceptIds="703,664,162926,99736,90001" answerLabels="Positive,Negative,Inconclusive,Known Positive,Unknown"
-                                                         id="99628" style="dropdown" answerSeparator="" />
+                                                         id="99628" style="dropdown" />
                                                 </div>
                                             </div>
 
@@ -409,13 +409,13 @@
                                                     <label>Date of TD1</label>
                                                     <!-- TODO: fix Calendar icon style -->
                                                     <i class=" icon-calendar small family-date-icon position-absolute" style="right: 25%; top: 50%;"></i>
-                                                    <obs  conceptId="162902" required="false" labelText="" allowFutureDates="false" />
+                                                    <obs  conceptId="162902" required="false" allowFutureDates="false" />
                                                 </div>
                                                 <div class="col-md-3">
                                                     <label>Date of TD2</label>
                                                     <!-- TODO: fix Calendar icon style -->
                                                     <i class=" icon-calendar small family-date-icon position-absolute" style="right: 25%; top: 50%;"></i>
-                                                    <obs conceptId="162903"  class="" id="90278" labelText="" required="false" />
+                                                    <obs conceptId="162903"  class="" id="90278" required="false" />
                                                 </div>
                                             </div>
 
@@ -434,14 +434,14 @@
                                                 </div>
                                                 <div class="col-md-2 ">
                                                     <obs conceptId="99633" answerConceptIds="90003, 90004" answerLabels="Yes, No" style="radio"
-                                                         answerSeparator="" class="horizontal"/>
+                                                         class="horizontal"/>
                                                 </div>
                                                 <div class="col-md-3 ">
                                                     <label>Genital ulcers?</label>
                                                 </div>
                                                 <div class="col-md-2 ">
                                                     <obs conceptId="99634" answerConceptIds="90003,90004" answerLabels="Yes, No" style="radio"
-                                                         answerSeparator="" class="horizontal"/>
+                                                         class="horizontal"/>
                                                 </div>
                                             </div>
                                             <div class="row">
@@ -450,14 +450,14 @@
                                                 </div>
                                                 <div class="col-md-2">
                                                     <obs conceptId="99635" answerConceptIds="90003,90004" answerLabels="Yes, No" style="radio"
-                                                         answerSeparator="" class="horizontal"/>
+                                                         class="horizontal"/>
                                                 </div>
                                                 <div class="col-md-3">
                                                     <label>Penile warts?</label>
                                                 </div>
                                                 <div class="col-md-2">
                                                     <obs conceptId="99636" answerConceptIds="90003,90004" answerLabels="Yes, No" style="radio"
-                                                         answerSeparator="" class="horizontal"/>
+                                                         class="horizontal"/>
                                                 </div>
                                             </div>
                                             <div class="row ">
@@ -466,14 +466,14 @@
                                                 </div>
                                                 <div class="col-md-2">
                                                     <obs conceptId="99637" answerConceptIds="90003,90004" answerLabels="Yes, No" style="radio"
-                                                         answerSeparator="" class="horizontal"/>
+                                                         class="horizontal"/>
                                                 </div>
                                                 <div class="col-md-3">
                                                     <label>Difficulty in retracting foreskin?</label>
                                                 </div>
                                                 <div class="col-md-2 ">
                                                     <obs conceptId="99638" answerConceptIds="90003,90004" answerLabels="Yes, No" style="radio"
-                                                         answerSeparator="" class="horizontal"/>
+                                                         class="horizontal"/>
                                                 </div>
                                             </div>
                                             <div class="row">
@@ -482,20 +482,20 @@
                                                 </div>
                                                 <div class="col-md-2 ">
                                                     <obs conceptId="99639" answerConceptIds="90003,90004" answerLabels="Yes, No" style="radio"
-                                                         answerSeparator="" class="horizontal"/>
+                                                         class="horizontal"/>
                                                 </div>
                                                 <div class="col-md-3 ">
                                                     <label>Erectile Dysfunction?</label>
                                                 </div>
                                                 <div class="col-md-2 ">
                                                     <obs conceptId="99640" answerConceptIds="90003,90004" answerLabels="Yes, No" style="radio"
-                                                         answerSeparator="" class="horizontal"/>
+                                                         class="horizontal"/>
                                                 </div>
                                             </div>
                                             <div class="row">
                                                 <div class="col-md-6 row">
                                                     <label class="col-md-3">Other Specify:</label>
-                                                    <obs class="col-md-4" conceptId="99642" id="99642" labelText="" required="false" />
+                                                    <obs class="col-md-4" conceptId="99642" id="99642" required="false" />
                                                 </div>
                                             </div>
 
@@ -513,14 +513,14 @@
                                                 </div>
                                                 <div class="col-md-2">
                                                     <obs conceptId="99644" answerConceptIds="90003,90004" answerLabels="Yes, No" style="radio"
-                                                         answerSeparator="" class="horizontal"/>
+                                                         class="horizontal"/>
                                                 </div>
                                                 <div class="col-md-3 ">
                                                     <label>Anaemia?</label>
                                                 </div>
                                                 <div class="col-md-2">
                                                     <obs conceptId="99645" answerConceptIds="90003,90004" answerLabels="Yes, No" style="radio"
-                                                         answerSeparator="" class="horizontal"/>
+                                                         class="horizontal"/>
                                                 </div>
 
                                             </div>
@@ -530,14 +530,14 @@
                                                 </div>
                                                 <div class="col-md-2 ">
                                                     <obs conceptId="99646" answerConceptIds="90003,90004" answerLabels="Yes, No" style="radio"
-                                                         answerSeparator="" class="horizontal"/>
+                                                         class="horizontal"/>
                                                 </div>
                                                 <div class="col-md-3">
                                                     <label>HIV/AIDS ?</label>
                                                 </div>
                                                 <div class="col-md-2">
                                                     <obs conceptId="99647" answerConceptIds="90003,90004" answerLabels="Yes, No" style="radio"
-                                                         answerSeparator="" class="horizontal"/>
+                                                         class="horizontal"/>
                                                 </div>
                                             </div>
                                             <div class="row ">
@@ -545,7 +545,7 @@
                                                     <label>Other Specify: </label>
                                                 </div>
                                                 <div class="col-md-2">
-                                                    <obs conceptId="99648" id="99648" labelText="" required="false" />
+                                                    <obs conceptId="99648" id="99648" required="false" />
                                                 </div>
                                             </div>
                                         </div>
@@ -562,18 +562,18 @@
                                                 </div>
                                                 <div class="col-md-2 ">
                                                     <obs conceptId="99650" answerConceptIds="90003, 90004" answerLabels="Yes, No" style="radio"
-                                                         answerSeparator="" class="horizontal"/>
+                                                         class="horizontal"/>
                                                 </div>
                                                 <div class="col-md-3">
                                                     <label>Antiseptics?</label>
                                                 </div>
                                                 <div class="col-md-2">
                                                     <obs conceptId="99651" answerConceptIds="90003, 90004" answerLabels="Yes, No" style="radio"
-                                                         answerSeparator="" class="horizontal"/>
+                                                         class="horizontal"/>
                                                 </div>
                                                 <div class="col-md-6 row">
                                                     <label class="col-md-6">Any other medication (Specify) :</label>
-                                                    <obs class="col-md-3 " conceptId="99652" id="99652" labelText="" required="false" />
+                                                    <obs class="col-md-3 " conceptId="99652" id="99652" required="false" />
                                                 </div>
                                             </div>
                                         </div>
@@ -588,11 +588,11 @@
                                                 <div class="col-md-3 ">
                                                     <label>BP:</label>
                                                     <div class="row">
-                                                        <obs conceptId="CIEL:5085" id="bp_systolic" labelText=""/>
+                                                        <obs conceptId="CIEL:5085" id="bp_systolic" />
                                                         <p class="left" >
                                                             /
                                                         </p>
-                                                        <obs conceptId="CIEL:5086" id="bp_diastolic" labelText=""/>
+                                                        <obs conceptId="CIEL:5086" id="bp_diastolic" />
                                                     </div>
                                                 </div>
                                                 <div class="col-md-2">
@@ -614,14 +614,14 @@
                                                 </div>
                                                 <div class="col-md-2 ">
                                                     <obs conceptId="99656" answerConceptIds="90003,90004" answerLabels="Yes,No" style="radio"
-                                                         answerSeparator="" class="horizontal"/>
+                                                        class="horizontal"/>
                                                 </div>
                                                 <div class="col-md-3">
                                                     <label>Adhesions?</label>
                                                 </div>
                                                 <div class="col-md-2 ">
                                                     <obs conceptId="99657" answerConceptIds="90003,90004" answerLabels="Yes, No" style="radio"
-                                                         answerSeparator="" class="horizontal"/>
+                                                        class="horizontal"/>
                                                 </div>
                                             </div>
                                             <div class="row ">
@@ -630,14 +630,14 @@
                                                 </div>
                                                 <div class="col-md-2 ">
                                                     <obs conceptId="99658" answerConceptIds="90003,90004" answerLabels="Yes, No" style="radio"
-                                                         answerSeparator="" class="horizontal"/>
+                                                        class="horizontal"/>
                                                 </div>
                                                 <div class="col-md-3">
                                                     <label>Genital Ulcer Disease?</label>
                                                 </div>
                                                 <div class="col-md-2 ">
                                                     <obs conceptId="99659" answerConceptIds="90003,90004" answerLabels="Yes, No" style="radio"
-                                                         answerSeparator="" class="horizontal"/>
+                                                        class="horizontal"/>
                                                 </div>
                                             </div>
                                             <div class="row">
@@ -646,14 +646,14 @@
                                                 </div>
                                                 <div class="col-md-2">
                                                     <obs conceptId="99660" answerConceptIds="90003,90004" answerLabels="Yes, No" style="radio"
-                                                         answerSeparator="" class="horizontal"/>
+                                                        class="horizontal"/>
                                                 </div>
                                                 <div class="col-md-3">
                                                     <label>Genital Warts?</label>
                                                 </div>
                                                 <div class="col-md-2">
                                                     <obs conceptId="99661" answerConceptIds="90003,90004" answerLabels="Yes, No" style="radio"
-                                                         answerSeparator="" class="horizontal"/>
+                                                         class="horizontal"/>
                                                 </div>
                                             </div>
                                             <div class="row ">
@@ -662,14 +662,14 @@
                                                 </div>
                                                 <div class="col-md-2 ">
                                                     <obs conceptId="99662" answerConceptIds="90003,90004" answerLabels="Yes, No" style="radio"
-                                                         answerSeparator="" class="horizontal"/>
+                                                         class="horizontal"/>
                                                 </div>
                                                 <div class="col-md-3">
                                                     <label>Other STI/ abnormalities?</label>
                                                 </div>
                                                 <div class="col-md-2 ">
                                                     <obs conceptId="99663" answerConceptIds="90003,90004" answerLabels="Yes, No" style="radio"
-                                                         answerSeparator="" class="horizontal"/>
+                                                         class="horizontal"/>
                                                 </div>
                                             </div>
                                             <div class="row ">
@@ -678,14 +678,14 @@
                                                 </div>
                                                 <div class="col-md-2 ">
                                                     <obs conceptId="162905" answerConceptIds="90003,90004" answerLabels="Yes, No" style="radio"
-                                                         answerSeparator="" class="horizontal"/>
+                                                         class="horizontal"/>
                                                 </div>
                                                 <div class="col-md-3">
                                                     <label>Jiggers?</label>
                                                 </div>
                                                 <div class="col-md-2">
                                                     <obs conceptId="162906" answerConceptIds="90003,90004" answerLabels="Yes, No" style="radio"
-                                                         answerSeparator="" class="horizontal"/>
+                                                         class="horizontal"/>
                                                 </div>
                                             </div>
                                             <div class="row">
@@ -694,11 +694,11 @@
                                                 </div>
                                                 <div class="col-md-2 ">
                                                     <obs conceptId="162907" answerConceptIds="90003,90004" answerLabels="Yes, No" style="radio"
-                                                         answerSeparator="" class="horizontal"/>
+                                                         class="horizontal"/>
                                                 </div>
                                                 <div class="col-md-6 row">
                                                     <label class="col-md-4 ">Other Specify:</label>
-                                                    <obs class="col-md-4 " conceptId="99664" labelText=""/>
+                                                    <obs class="col-md-4 " conceptId="99664" />
                                                 </div>
                                             </div>
 
@@ -716,21 +716,21 @@
                                                 </div>
                                                 <div class="col-md-2 ">
                                                     <obs conceptId="99666" answerConceptIds="90003,90004" answerLabels="Yes,No" style="radio"
-                                                         answerSeparator="" class="horizontal"/>
+                                                         class="horizontal"/>
                                                 </div>
                                                 <div class="col-md-3">
                                                     <label>Informed consent/assent for SMC given?</label>
                                                 </div>
                                                 <div class="col-md-2">
                                                     <obs conceptId="99667" answerConceptIds="90003,90004" answerLabels="Yes,No" style="radio"
-                                                         answerSeparator="" class="horizontal"/>
+                                                         class="horizontal"/>
                                                 </div>
                                                 <div class="col-md-3">
                                                     <label>Client eligible for circumcision after history/physical exam?</label>
                                                 </div>
                                                 <div class="col-md-2">
                                                     <obs conceptId="99668" answerConceptIds="90003,90004" answerLabels="Yes,No" style="radio"
-                                                         answerSeparator="" class="horizontal"/>
+                                                         class="horizontal"/>
                                                 </div>
 
                                             </div>
@@ -778,11 +778,11 @@
                                                     <div class="col-md-3"><label>Local Anesthesia</label> </div>
                                                     <div class="col-md-4 ">
                                                         <label>Lignocaine (mls)</label>
-                                                        <obs conceptId="99671" labelText=""/>
+                                                        <obs conceptId="99671" />
                                                     </div>
                                                     <div class="col-md-3">
                                                         <label>Bupivicaine (mls)</label>
-                                                        <obs conceptId="99672" labelText=""/>
+                                                        <obs conceptId="99672" />
                                                     </div>
                                                     <div class="col-md-2 col-md-offset-2">
                                                         <obs conceptId="99612" answerConceptId="165384" answerLabel="EMLA Cream" style="checkbox"/>
@@ -795,7 +795,7 @@
                                                         <label>Type of Circumcision Procedure </label>
                                                         <obs conceptId="99628" answerConceptIds="99676,99675,99677,162908,162911,90002" answerLabels="Dorsal slit,Forceps guided,Sleeve,PrePex,Shang Ring,Other Specify"
                                                              id="circumcision_procedure"
-                                                             style="dropdown" answerSeparator=""/>
+                                                             style="dropdown" />
                                                     </div>
                                                     <div class="col-md-4">
                                                         <obs conceptId="162909" id="162910" labelText="Ring Size"/>
@@ -818,7 +818,7 @@
                                                     <div class="col-md-4">
                                                         <label>Adverse events during procedure?</label>
                                                         <obs conceptId="99684" id="99684" answerConceptIds="90003,90004" answerLabels="Yes,No" style="radio"
-                                                             answerSeparator="" class="horizontal"/>
+                                                             class="horizontal"/>
                                                     </div>
                                                 </div>
 
@@ -858,7 +858,7 @@
                                                 <div class="col-md-6 ">
                                                     <label >Severity</label>
                                                     <obs conceptId="99691" answerConceptIds="99562,99561" answerLabels="Moderate, Severe"
-                                                         style="radio" answerSeparator="" class="horizontal col-md-6"/>
+                                                         style="radio" class="horizontal col-md-6"/>
                                                 </div>
                                             </div>
 
@@ -866,12 +866,11 @@
                                             <div class="row">
                                                 <div class="col-md-6">
                                                     <label>Treatment given:</label>
-                                                    <obs conceptId="99692" size="50" labelText=""/>
+                                                    <obs conceptId="99692" size="50" />
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-    <!--                                </span>-->
 
 
                                     <!-- Adverse event form-->
@@ -884,11 +883,11 @@
                                                 <div class="col-md-3">
                                                     <label>BP:</label>
                                                     <div class="col-md-12  align-items-center row">
-                                                        <obs conceptId="CIEL:5085" id="bp_systolic" labelText=""/>
+                                                        <obs conceptId="CIEL:5085" id="bp_systolic" />
                                                         <p class="left" >
                                                             /
                                                         </p>
-                                                        <obs conceptId="CIEL:5086" id="bp_diastolic" labelText=""/>
+                                                        <obs conceptId="CIEL:5086" id="bp_diastolic" />
                                                     </div>
                                                 </div>
                                                 <div class="col-md-3">
@@ -906,7 +905,7 @@
                                             <div class="row">
                                                 <div class="col-md-12">
                                                     <label>List Post-Operative medication given:</label>
-                                                    <obs conceptId="99697" size="50" labelText=""/>
+                                                    <obs conceptId="99697" size="50" />
                                                 </div>
                                             </div>
                                         </div>
@@ -957,13 +956,13 @@
                                                                                 </div>
                                                                                 <div class="col-md-4">
                                                                                     <label>Wound Status:</label>
-                                                                                    <obs conceptId="162912" labelText=""/>
+                                                                                    <obs conceptId="162912" />
                                                                                 </div>
                                                                                 <div class="col-md-5 ">
                                                                                     <label>Type of Visit:</label>
                                                                                     <obs conceptId="99702" answerConceptIds="99703,99704,99705" answerLabels="1 - Routine, 2 - Client initiated/unscheduled,3 - Recommended by Physician"
                                                                                          id="99702"
-                                                                                         style="dropdown" answerSeparator="" labelText=""/>
+                                                                                         style="dropdown" />
                                                                                 </div>
                                                                             </div>
 
@@ -1009,7 +1008,7 @@
                                                                                     <obs class="col-md-x4" conceptId="99706" id="smc_presence_of_ae" answerConceptId="90002" answerLabel="(Other Specify)" />
                                                                                 </div>
                                                                                 <div class="col-md-4">
-                                                                                    <obs conceptId="99710" labelText="" id="smc_presence_of_ae_other"/>
+                                                                                    <obs conceptId="99710" id="smc_presence_of_ae_other"/>
                                                                                 </div>
                                                                             </div>
 
@@ -1018,7 +1017,7 @@
                                                                                 <div class="col-md-6 ">
                                                                                     <label >Severity</label>
                                                                                     <obs conceptId="99691" answerConceptIds="99562,99561" answerLabels="Moderate, Severe"
-                                                                                         style="radio" answerSeparator="" class="horizontal col-md-6"/>
+                                                                                         style="radio" class="horizontal col-md-6"/>
                                                                                 </div>
                                                                             </div>
 
@@ -1026,7 +1025,7 @@
                                                                             <div class="row">
                                                                                 <div class="col-md-6">
                                                                                     <label>Treatment given:</label>
-                                                                                    <obs conceptId="99692" size="50" labelText=""/>
+                                                                                    <obs conceptId="99692" size="50"/>
                                                                                 </div>
                                                                             </div>
 
